@@ -6,7 +6,7 @@ const contactConfig = {
     cc: 'aGVucmlxdWUuYXJhdWpvQGNvcmVkYi5jb20uYnI=',
   },
   whatsapp: {
-    phone: 'NTUzOTg4NjIyNDI4', // base64 de 553988622428
+    phone: 'KzU1IDM4IDk4NjItMjQyOA==', // base64 de 553988622428
   },
 };
 

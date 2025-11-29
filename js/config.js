@@ -6,7 +6,7 @@ const contactConfig = {
     cc: 'aGVucmlxdWUuYXJhdWpvQGNvcmVkYi5jb20uYnI=', // base64 de henrique.araujo@coredb.com.br
   },
   whatsapp: {
-    phone: 'NTUgMzggOTg2Mi0yNDI4', // base64 de 5531990822734
+    phone: '+55398862-2428', // base64 de 5531990822734
   },
 };
 

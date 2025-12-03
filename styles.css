@@ -982,4 +982,124 @@
         width: 100%;
     }
 }
+/* === SOBRE A COREDB – CARDS INTERATIVOS === */
+
+#about .logos-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: nowrap;
+  max-width: 1040px;
+  margin: 32px auto 0;
+}
+
+/* Card base */
+#about .logo-badge {
+  position: relative;
+  width: 240px;
+  min-height: 230px; /* garante espaço para título + texto + foto */
+  padding: 22px 20px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(15,23,42,0.95));
+  border: 1px solid rgba(148,163,184,0.4);
+  box-shadow: 0 16px 45px rgba(0,0,0,0.45);
+  color: #e5e7eb;
+
+  transform-origin: center center;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+  cursor: default;
+}
+
+/* Área para foto / ícone */
+#about .logo-media {
+  width: 78px;
+  height: 78px;
+  border-radius: 22px;
+  margin-bottom: 14px;
+
+  background: radial-gradient(circle at 25% 20%, #38bdf8, #0f172a);
+  border: 1px dashed rgba(148,163,184,0.7);
+  box-shadow: 0 10px 28px rgba(56,189,248,0.35);
+}
+
+/* Título */
+#about .logo-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Texto – começa escondido mas com espaço reservado */
+#about .logo-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #cbd5f5;
+  max-width: 260px;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Quando o mouse entra no container, todos recuam um pouco */
+#about .logos-cards:hover .logo-badge {
+  opacity: 0.65;
+  transform: scale(0.96);
+}
+
+/* Card em foco – cresce MESMO */
+#about .logo-badge:hover {
+  transform: scale(1.16) translateY(-8px);
+  opacity: 1;
+  box-shadow: 0 26px 70px rgba(15,23,42,0.85);
+  border-color: rgba(56,189,248,0.6);
+}
+
+/* Revela o texto, sem misturar com o título */
+#about .logo-badge:hover .logo-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+  #about .logos-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #about .logo-badge {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  #about .logo-badge {
+    width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+    min-height: 210px;
+  }
+
+  #about .logos-cards:hover .logo-badge {
+    opacity: 1;
+  }
+
+  /* Em mobile o texto já aparece, sem hover */
+  #about .logo-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 

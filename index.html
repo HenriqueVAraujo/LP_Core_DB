@@ -5,11 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; script-src 'self'; connect-src 'self' https://formsubmit.co; form-action https://formsubmit.co;"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; script-src [...]
     >
     <title>CoreDB - Consultoria em TOTVS e Bancos de Dados</title>
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Small local CSS to align and size the logo badges and ensure ordering/spacing -->
+    <style>
+        /* Grid layout for the badges so they align nicely and keep consistent sizing */
+        .logos {
+            display: grid;
+            gap: 1rem;
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 1rem;
+            /* Use responsive columns: each badge will be at least 220px and expand */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            max-width: 1100px;
+        }
+
+        .logo-badge {
+            width: 100%;
+            max-width: 340px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            /* subtle visual for badge background — you can remove/adjust to match styles.css */
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+        }
+
+        /* Optional: make sure on very wide screens badges don't stretch too much */
+        @media (min-width: 1200px) {
+            .logos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Small spacing tweak for the about section container */
+        #about .container {
+            display: flex;
+            justify-content: center; /* center the content portion horizontally */
+        }
+
+        /* Keep text content constrained while leaving badges grid centered */
+        #about .about-grid > div {
+            max-width: 1100px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -148,9 +193,10 @@ Nosso time oferece um diagnóstico inicial gratuito para entender sua necessidad
                         em transformar desafios tecnológicos em resultados reais para o seu negócio.
                     </p>
                     <div class="logos">
-                        <div class="logo-badge">Administração de Bancos de Dados (DBA)</div>
-                        <div class="logo-badge">TOTVS Protheus</div>
+                        <!-- Reordenado: primeiro TOTVS RM, depois TOTVS Protheus, depois os demais -->
                         <div class="logo-badge">TOTVS RM</div>
+                        <div class="logo-badge">TOTVS Protheus</div>
+                        <div class="logo-badge">Administração de Bancos de Dados (DBA)</div>
                         <div class="logo-badge">Fluig &amp; automação de processos</div>
                     </div>
                 </div>

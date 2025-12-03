@@ -374,13 +374,47 @@
             color: #fff;
         }
 
-        .logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 20px;
-            justify-content: center;
-        }
+      /* === LOGOS — REESTILIZADO E FORÇADO A FICAR EM LINHA === */
+.logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;              /* impede quebra de linha */
+    justify-content: center;        /* centraliza */
+    align-items: center;
+    gap: 22px;                      /* espaço maior e mais harmônico */
+    margin: 40px auto 0;
+    max-width: 1000px;
+}
+
+/* === CARDS MAIS EQUILIBRADOS === */
+.logo-badge {
+    padding: 22px 30px;
+    min-width: 220px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    color: #e9edf5;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.32);
+    transition: transform .25s ease, border-color .25s ease;
+}
+
+.logo-badge:hover {
+    transform: translateY(-4px);
+    border-color: rgba(14,165,233,0.45);
+}
+
+/* MOBILE — volta a quebrar em duas linhas */
+@media (max-width: 900px) {
+    .logos {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
 
         .logo-badge {
             flex: 1 1 220px;

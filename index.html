@@ -10,51 +10,7 @@
     <title>CoreDB - Consultoria em TOTVS e Bancos de Dados</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Small local CSS to align and size the logo badges and ensure ordering/spacing -->
-    <style>
-        /* Grid layout for the badges so they align nicely and keep consistent sizing */
-        .logos {
-            display: grid;
-            gap: 1rem;
-            justify-items: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 1rem;
-            /* Use responsive columns: each badge will be at least 220px and expand */
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            max-width: 1100px;
-        }
-
-        .logo-badge {
-            width: 100%;
-            max-width: 340px;
-            padding: 16px 20px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 700;
-            /* subtle visual for badge background — you can remove/adjust to match styles.css */
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255,255,255,0.02);
-        }
-
-        /* Optional: make sure on very wide screens badges don't stretch too much */
-        @media (min-width: 1200px) {
-            .logos {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Small spacing tweak for the about section container */
-        #about .container {
-            display: flex;
-            justify-content: center; /* center the content portion horizontally */
-        }
-
-        /* Keep text content constrained while leaving badges grid centered */
-        #about .about-grid > div {
-            max-width: 1100px;
-        }
-    </style>
+  
 </head>
 <body>
     <header>

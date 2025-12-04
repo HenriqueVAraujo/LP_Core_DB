@@ -314,43 +314,82 @@
             margin: 0;
         }
 
-        .service-grid {
+        .intro-services,
+        .service-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
         }
 
-        .card {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(14, 165, 233, 0.5);
-        }
-
-        .card h3 {
-            color: #fff;
-            margin: 12px 0 8px;
-        }
-
-        .card p {
-            color: var(--muted);
-        }
-
-        .icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            background: rgba(30, 64, 175, 0.3);
+        .intro-card,
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            min-height: 100%;
+        }
+
+        .intro-card::before,
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, rgba(37, 99, 235, 0.12), rgba(14, 165, 233, 0.08));
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .intro-card:hover,
+        .service-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            border-color: rgba(14, 165, 233, 0.35);
+        }
+
+        .intro-body,
+        .service-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1 1 auto;
+        }
+
+        .intro-title,
+        .service-title {
+            color: #fff;
+            font-size: 1.1rem;
+            letter-spacing: 0.2px;
+        }
+
+        .intro-text,
+        .service-text {
+            color: var(--muted);
+            font-size: 0.97rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1100px) {
+            .intro-services,
+            .service-showcase {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 680px) {
+            .intro-services,
+            .service-showcase {
+                grid-template-columns: 1fr;
+            }
         }
 
         .steps {
@@ -374,96 +413,10 @@
             color: #fff;
         }
 
-      /* === LOGOS — REESTILIZADO E FORÇADO A FICAR EM LINHA === */
-.logos {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;              /* impede quebra de linha */
-    justify-content: center;        /* centraliza */
-    align-items: center;
-    gap: 22px;                      /* espaço maior e mais harmônico */
-    margin: 40px auto 0;
-    max-width: 1000px;
-}
-
-/* === Ajuste definitivo dos badges do Sobre a CoreDB === */
-#about .logos {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 22px;
-    margin-top: 32px;
-    flex-wrap: nowrap; /* mantém tudo em uma linha em telas grandes */
-}
-
-#about .logo-badge {
-    width: 260px;                     /* todos do mesmo tamanho */
-    min-height: 95px;                 /* mesma altura */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 22px 24px;
-    text-align: center;
-    border-radius: 18px;
-
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.12);
-    color: #e9edf5;
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 0.3px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(8px);
-
-    transition: transform .25s ease, border-color .25s ease;
-}
-
-#about .logo-badge:hover {
-    transform: translateY(-4px);
-    border-color: rgba(56,189,248,0.4);
-}
-
-/* Responsivo */
-@media (max-width: 980px) {
-    #about .logos {
-        flex-wrap: wrap;    /* quebra só quando realmente necessário */
-        gap: 18px;
-    }
-
-    #about .logo-badge {
-        width: 46%;
-        min-height: 90px;
-    }
-}
-
-@media (max-width: 600px) {
-    #about .logo-badge {
-        width: 100%;
-    }
-}
-
-
-/* MOBILE — volta a quebrar em duas linhas */
-@media (max-width: 900px) {
-    .logos {
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-}
-
-
-        .logo-badge {
-            flex: 1 1 220px;
-            max-width: 260px;
-            padding: 16px 18px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            color: #e9edf5;
-            font-weight: 700;
-            letter-spacing: 0.1px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+        .logos,
+        .logo-badge,
+        .logo-label {
+            display: none;
         }
 
         .testimonial {
@@ -837,12 +790,7 @@
 
         @media (max-width: 600px) {
             .logos {
-                gap: 12px;
-            }
-
-            .logo-badge {
-                flex-basis: 100%;
-                max-width: none;
+                gap: 14px;
             }
 
             .hero-cube {
@@ -886,220 +834,3 @@
                 gap: 20px;
             }
         }
-
-/* ====== INTERACTIVE LOGOS – efeito expansível ====== */
-
-.interactive-logos {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 22px;
-    margin-top: 32px;
-    flex-wrap: nowrap;
-}
-
-.interactive-logos .logo-badge {
-    position: relative;
-    width: 260px;
-    min-height: 110px;
-    padding: 22px 20px;
-    border-radius: 18px;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    color: #e9edf5;
-
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.32);
-    backdrop-filter: blur(8px);
-
-    transition: 
-        transform .35s ease,
-        flex .35s ease,
-        border-color .25s ease,
-        background .25s ease;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-/* Texto escondido */
-.interactive-logos .logo-badge::after {
-    content: attr(data-info);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -100%;
-    padding: 18px 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #dbeafe;
-
-    transition: bottom .35s ease;
-}
-
-/* Hover: card cresce */
-.interactive-logos:hover .logo-badge {
-    flex: 1;
-    transform: scale(0.95);
-    opacity: 0.7;
-}
-
-/* Card sendo focado */
-.interactive-logos .logo-badge:hover {
-    flex: 1.8;
-    transform: scale(1.05);
-    opacity: 1;
-    border-color: rgba(56,189,248,0.5);
-    background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-}
-
-/* Mostrar texto */
-.interactive-logos .logo-badge:hover::after {
-    bottom: 0;
-}
-
-@media (max-width: 980px) {
-    .interactive-logos {
-        flex-wrap: wrap;
-    }
-
-    .interactive-logos .logo-badge {
-        width: 46%;
-        flex: none !important;
-        transform: none !important;
-        opacity: 1 !important;
-    }
-
-    .interactive-logos .logo-badge::after {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .interactive-logos .logo-badge {
-        width: 100%;
-    }
-}
-/* === SOBRE A COREDB – CARDS INTERATIVOS === */
-
-#about .logos-cards {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 24px;
-  flex-wrap: nowrap;
-  max-width: 1040px;
-  margin: 32px auto 0;
-}
-
-/* Card base */
-#about .logo-badge {
-  position: relative;
-  width: 240px;
-  min-height: 230px; /* garante espaço para título + texto + foto */
-  padding: 22px 20px;
-  border-radius: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(15,23,42,0.95));
-  border: 1px solid rgba(148,163,184,0.4);
-  box-shadow: 0 16px 45px rgba(0,0,0,0.45);
-  color: #e5e7eb;
-
-  transform-origin: center center;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.25s ease,
-    opacity 0.25s ease;
-  cursor: default;
-}
-
-/* Área para foto / ícone */
-#about .logo-media {
-  width: 78px;
-  height: 78px;
-  border-radius: 22px;
-  margin-bottom: 14px;
-
-  background: radial-gradient(circle at 25% 20%, #38bdf8, #0f172a);
-  border: 1px dashed rgba(148,163,184,0.7);
-  box-shadow: 0 10px 28px rgba(56,189,248,0.35);
-}
-
-/* Título */
-#about .logo-title {
-  font-size: 1.02rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-/* Texto – começa escondido mas com espaço reservado */
-#about .logo-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #cbd5f5;
-  max-width: 260px;
-
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Quando o mouse entra no container, todos recuam um pouco */
-#about .logos-cards:hover .logo-badge {
-  opacity: 0.65;
-  transform: scale(0.96);
-}
-
-/* Card em foco – cresce MESMO */
-#about .logo-badge:hover {
-  transform: scale(1.16) translateY(-8px);
-  opacity: 1;
-  box-shadow: 0 26px 70px rgba(15,23,42,0.85);
-  border-color: rgba(56,189,248,0.6);
-}
-
-/* Revela o texto, sem misturar com o título */
-#about .logo-badge:hover .logo-desc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsivo */
-@media (max-width: 1100px) {
-  #about .logos-cards {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #about .logo-badge {
-    width: 45%;
-  }
-}
-
-@media (max-width: 700px) {
-  #about .logo-badge {
-    width: 100%;
-    transform: none !important;
-    opacity: 1 !important;
-    min-height: 210px;
-  }
-
-  #about .logos-cards:hover .logo-badge {
-    opacity: 1;
-  }
-
-  /* Em mobile o texto já aparece, sem hover */
-  #about .logo-desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
